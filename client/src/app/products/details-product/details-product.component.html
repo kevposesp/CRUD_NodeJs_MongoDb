@@ -1,0 +1,32 @@
+<div class="container my-5">
+  <div class="card details-card p-0">
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <img class="img-fluid details-img"
+          src="https://source.unsplash.com/5Tm4YRqnNcM" alt>
+      </div>
+      <div class="col-md-6 col-sm-12 description-container p-5">
+        <div class="main-description" *ngIf="product() as product">
+          <p class="product-category mb-0">Graphite</p>
+          <h3>{{product.title}}</h3>
+          <hr>
+          <p class="product-price">{{product.price}} €</p>
+          <div style="clear:both"></div>
+          <hr>
+          <p class="product-title mt-4 mb-1">About this product</p>
+          <p class="product-description mb-4">
+            {{product.description}}
+          </p>
+          <hr>
+          <p class="product-title mt-4 mb-1">Share this product</p>
+          <ul class="social-list">
+            <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-square-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
