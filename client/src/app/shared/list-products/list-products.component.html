@@ -1,0 +1,11 @@
+<div class="container">
+    <h1 class="mt-5">Lista de Productos</h1>
+    <div class="row">
+        
+        <div class="col-md-4" *ngFor="let item of products()">
+            <app-card-product [value]="item"></app-card-product>
+        </div>
+    </div>
+</div>
+
+  
