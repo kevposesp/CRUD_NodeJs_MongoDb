@@ -16,7 +16,7 @@ export class ApiService {
   }
 
   getById(path: string, id: string): Observable<any> {
-    return this.http.post(path, { slug:id });
+    return this.http.post(path, { id });
   }
 
   deleteById(path: string, id: string): Observable<any> {
@@ -24,14 +24,14 @@ export class ApiService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json', //  ajusta los encabezados según tus necesidades
       }),
-      body: { slug: id }, // Cuerpo de la solicitud DELETE si es necesario
+      body: { id }, // Cuerpo de la solicitud DELETE si es necesario
     };
-  
+
     return this.http.delete(path, options);
   }
 
   deleteAll(path: string): Observable<any> {
     return this.http.delete(path)
   }
-  
+
 }

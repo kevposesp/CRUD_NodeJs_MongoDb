@@ -22,8 +22,8 @@ export class DetailsProductComponent implements OnInit {
     .subscribe({
       next: (data) => {
         this.product.set(data)
-        console.log(data);
-      }
+      },
+      error: (e) => console.error(e)
     })
   }
 }

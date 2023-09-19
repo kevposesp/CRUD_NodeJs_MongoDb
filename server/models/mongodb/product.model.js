@@ -1,6 +1,11 @@
-module.exports = (mongoose) => {
+module.exports = (mongoose, slugify, uniqueValidator) => {
   const schema = mongoose.Schema(
     {
+      slug: {
+        type: String,
+        lowercase: true,
+        unique: true
+      },
       title: String,
       description: String,
       // status: String,
@@ -14,9 +19,15 @@ module.exports = (mongoose) => {
     { timestamps: true }
   );
 
+  schema.plugin(uniqueValidator);
+
+  schema.pre('save', function (next) {
+    this.slug = slugify(this.title + '-' + (Math.random() * Math.pow(36, 6) | 0).toString(36), { lower: true, replacement: '-'});
+    next();
+  });
+
   schema.method("toJSON", function () {
     const { __v, ...object } = this.toObject();
-    object.id = _id;
     return object;
   });
 

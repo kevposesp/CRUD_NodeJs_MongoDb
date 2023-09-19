@@ -25,6 +25,6 @@ export class ProductsService {
   }
 
   deleteProducts(): Observable<any> {
-    return this.apiService.deleteAll('http://localhost:3000/product')
+    return this.apiService.deleteAll('http://localhost:3000/productAll')
   }
 }

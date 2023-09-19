@@ -8,38 +8,35 @@ import { Product, ProductsService } from 'src/app/core';
 })
 export class ListProductsComponent implements OnInit {
   products = signal<Product[]>([]);
-  constructor(private productService: ProductsService) {}
+  constructor(private productService: ProductsService) { }
 
   ngOnInit(): void {
     this.getProducts()
   }
-  getProducts(){
+  getProducts() {
     this.productService.get().subscribe({
       next: (data) => {
         this.products.set(data);
-        console.log(data);
       },
+      error: (e) => console.error(e)
     });
   }
 
-  deleteProduct(id:string){
+  deleteProduct(id: string) {
     this.productService.deleteProduct(id).subscribe({
       next: (data) => {
         this.getProducts()
-        console.log(data);
-        
       },
       error: (e) => console.error(e)
     })
-    console.log(id);
-    
   }
 
-  deleteAll(){
+  deleteAll() {
     this.productService.deleteProducts().subscribe({
       next: (data) => {
-        console.log(data)        
-      }
+        this.getProducts()
+      },
+      error: (e) => console.error(e)
     })
   }
 }
