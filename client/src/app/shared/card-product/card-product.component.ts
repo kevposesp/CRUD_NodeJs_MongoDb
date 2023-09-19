@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from 'src/app/core';
 
 @Component({
@@ -8,5 +8,15 @@ import { Product } from 'src/app/core';
 })
 export class CardProductComponent {
  @Input() value:any
+ @Output() deleteProduct = new EventEmitter<string>();
+
+ stop(event:Event){
+  event.stopPropagation()
+ }
+
+ deleteOne(id:string){
+  this.deleteProduct.emit(id)  
+ }
+
 }
 

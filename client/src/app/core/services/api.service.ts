@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -16,6 +16,22 @@ export class ApiService {
   }
 
   getById(path: string, id: string): Observable<any> {
-    return this.http.post(path, { id });
+    return this.http.post(path, { slug:id });
   }
+
+  deleteById(path: string, id: string): Observable<any> {
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json', //  ajusta los encabezados según tus necesidades
+      }),
+      body: { slug: id }, // Cuerpo de la solicitud DELETE si es necesario
+    };
+  
+    return this.http.delete(path, options);
+  }
+
+  deleteAll(path: string): Observable<any> {
+    return this.http.delete(path)
+  }
+  
 }

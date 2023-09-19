@@ -19,4 +19,12 @@ export class ProductsService {
   getById(id: string): Observable<Product> {
     return this.apiService.getById('http://localhost:3000/product', id)
   }
+
+  deleteProduct(id:string): Observable<any> {
+    return this.apiService.deleteById('http://localhost:3000/product',id)
+  }
+
+  deleteProducts(): Observable<any> {
+    return this.apiService.deleteAll('http://localhost:3000/product')
+  }
 }

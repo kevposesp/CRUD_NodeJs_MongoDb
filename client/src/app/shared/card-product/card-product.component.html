@@ -1,8 +1,10 @@
-<div class="card mb-4" >
-    <img src="" class="card-img-top">
+<div class="card mb-4" [routerLink]="['/products',value.id]">
+    <!-- <a class="nav-link" [routerLink]="['/products',value.id]"></a> -->
+    <img src="{{value.imgs[0]}}" class="card-img-top" >
     <div class="card-body">
         <h5 class="card-title">{{value.title}}</h5>
         <p class="card-text">{{value.price}} €</p>
         <p class="card-text">{{value.description}}</p>
+        <button class="btn btn-outline-danger" (click)="stop($event);deleteOne(value.id)">Delete</button>
     </div>
 </div>
