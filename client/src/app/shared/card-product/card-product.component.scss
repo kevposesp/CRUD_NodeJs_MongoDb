@@ -1,0 +1,14 @@
+.card{
+    padding: 10px;
+    transition: 0.5s;
+    &:hover{
+        cursor: pointer;
+        transform: scale(1.05);
+        background-color: rgb(224, 222, 222);
+    }
+    .card-img-top{
+        width: 200px;
+        margin: auto;
+        max-height: 300px;
+    }  
+}
