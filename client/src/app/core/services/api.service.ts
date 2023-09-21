@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
+  constructor(private http: HttpClient) {}
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  set(path: string, data: {}): Observable<any> {
+    return this.http.post(path, data);
+  }
 
   get(path: string): Observable<any> {
     return this.http.get(path);
@@ -31,7 +32,10 @@ export class ApiService {
   }
 
   deleteAll(path: string): Observable<any> {
-    return this.http.delete(path)
+    return this.http.delete(path);
   }
 
+  update(path: string, data: {}): Observable<any> {
+    return this.http.put(path, data);
+  }
 }

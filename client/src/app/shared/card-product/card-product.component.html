@@ -6,5 +6,6 @@
         <p class="card-text">{{value.price}} €</p>
         <p class="card-text">{{value.description}}</p>
         <button class="btn btn-outline-danger" (click)="stop($event);deleteOne(value.slug)">Delete</button>
+        <button class="btn btn-outline-info" (click)="stop($event);" [routerLink]="['/add',value.slug]">Edit</button>
     </div>
 </div>
