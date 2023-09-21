@@ -21,6 +21,20 @@ createProduct = (req, res) => {
         });
 };
 
+// Create and Save a new Product
+createAllProduct = (req, res) => {
+    const products = req.body.products
+
+    // console.log(products);
+    products.forEach(prod => {
+        const product = new Product(prod);
+        product.save(product)
+    });
+    res.json("vale")
+
+};
+
+
 // Read Products
 
 readProducts = async (req, res) => {
@@ -116,6 +130,7 @@ const productController = {
     readProductID,
     deleteProduct,
     updateProduct,
-    deleteProductAll
+    deleteProductAll,
+    createAllProduct
 }
 module.exports = productController;
