@@ -1,0 +1,8 @@
+<div class="container">
+    <h1 class="mt-5 text-center">AÑADIR PRODUCTO</h1>   
+    <app-create-form-product
+    (createProduct)="createProduct($event)"
+    (updateProduct)="updateProduct($event)"
+    [newProduct]="product"
+    ></app-create-form-product>
+</div>

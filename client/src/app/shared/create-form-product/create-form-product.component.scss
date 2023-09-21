@@ -1,0 +1,35 @@
+form {
+    min-width:300px;
+    max-width:400px;
+    padding:20px;
+    margin:0 auto;
+    background:#ffffff59; 
+    -webkit-box-shadow: 3px 3px 23px -9px rgba(0,0,0,0.86);
+    -moz-box-shadow: 3px 3px 23px -9px rgba(0,0,0,0.86);
+    box-shadow: 3px 3px 23px -9px rgba(0,0,0,0.86);
+    border-radius: 5px;
+  }
+  
+  form input {
+    border:1px solid #eee;
+    border-radius:0 !important;
+    padding:5px 8px;
+    color:#444;
+  }
+    
+  .pull-right {
+    float:right;
+  }
+
+  .form-control{
+    margin: 5px;
+  }
+
+  .btn{
+    margin:  26px -5px -5px auto;
+    display: block;
+  }
+
+  .container{
+    margin-top: 50px;
+  }
