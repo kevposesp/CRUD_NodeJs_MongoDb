@@ -1,3 +1,4 @@
+const dotenv = require("dotenv")
 const express = require("express");
 const cors = require("cors");
 const app = express();
@@ -6,7 +7,7 @@ const app = express();
 // Conexion MongoDB
 const mdb = require("./models/mongodb");
 mdb.mongoose
-    .connect(mdb.url, {
+    .connect(process.env.MONGO_URI || mdb.url, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
@@ -19,7 +20,7 @@ mdb.mongoose
     });
 
 var corsOptions = {
-    origin: "http://localhost:4200"
+    origin: process.env.CORSURL || "http://localhost:4200"
 };
 
 app.use(cors(corsOptions));
@@ -33,6 +34,7 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 require('./routes/products.routes')(app);
 
+dotenv.config()
 // Iniciar el servidor
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;
