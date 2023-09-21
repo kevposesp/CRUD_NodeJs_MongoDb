@@ -12,6 +12,10 @@ export class ProductsService {
     private apiService: ApiService
   ) { }
 
+  set(data:{}): Observable<Product[]> {
+    return this.apiService.set('http://localhost:3000/products', data)
+  }
+
   get(): Observable<Product[]> {
     return this.apiService.get('http://localhost:3000/products')
   }
@@ -26,5 +30,9 @@ export class ProductsService {
 
   deleteProducts(): Observable<any> {
     return this.apiService.deleteAll('http://localhost:3000/productAll')
+  }
+
+  updateProd(data:{}): Observable<any> {
+    return this.apiService.update('http://localhost:3000/product', data)
   }
 }
