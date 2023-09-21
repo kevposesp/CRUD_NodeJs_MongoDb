@@ -1,4 +1,4 @@
-const {createProduct, readProducts,readProductID,deleteProduct,deleteProductAll, updateProduct} = require("../controllers/product.controller")
+const {createProduct, readProducts,readProductID,deleteProduct,deleteProductAll, updateProduct, createAllProduct} = require("../controllers/product.controller")
 
 
 module.exports = function (app) {
@@ -24,6 +24,11 @@ app.post(
 app.post(
     "/products",
     createProduct
+)
+
+app.post(
+    "/productsAll",
+    createAllProduct
 )
 
 app.delete(
